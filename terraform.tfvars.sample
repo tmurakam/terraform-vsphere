@@ -1,0 +1,17 @@
+user = "administrator@vsphere.local"
+password = "Passw0rD!"
+vcenter_server = "vcenter.example.com"
+
+datacenter = "ExampleDC"
+cluster = "MyCluster"
+
+datastore = "datastore1"
+
+vms = {
+  vm1 = {
+    name = "vm1"
+    datastore_name = "datastore1"
+    iso_datastore_name = "datastore1"
+    iso_path = "/ISOs/ubuntu-22.04.1-live-server-amd64.iso"
+  }
+}
