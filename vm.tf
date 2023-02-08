@@ -21,7 +21,7 @@ resource "vsphere_virtual_machine" "vm" {
 
   num_cpus         = 4
   memory           = 4096
-  guest_id         = "ubuntu64Guest"
+  guest_id         = each.value.guest_id
 
   network_interface {
     network_id = data.vsphere_network.network.id

@@ -4,8 +4,7 @@ vcenter_server = "vcenter.example.com"
 
 datacenter = "ExampleDC"
 cluster = "MyCluster"
-
-datastore = "datastore1"
+network = "VM Network"
 
 vms = {
   vm1 = {
@@ -13,5 +12,6 @@ vms = {
     datastore_name = "datastore1"
     iso_datastore_name = "datastore1"
     iso_path = "/ISOs/ubuntu-22.04.1-live-server-amd64.iso"
+    guest_id = "ubuntu64Guest"
   }
 }
