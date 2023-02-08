@@ -16,6 +16,8 @@ terraform.tfvars.sample を terraform.tfvars にコピーし、設定を行い�
 
 その後 `terraform init`, `terraform deploy` でデプロイを実行します。
 
+各 VM に割り当てられた IP アドレスは `terraform output --json` で取得できます。
+
 # Configurations
 
 設定は terraform.tfvars で行います。
