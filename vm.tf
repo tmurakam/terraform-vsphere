@@ -12,6 +12,12 @@ data "vsphere_datastore" "iso_ds" {
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
+data "vsphere_virtual_machine" "template" {
+  name          = var.vm_template_name
+  datacenter_id = data.vsphere_datacenter.datacenter.id
+}
+
+
 resource "vsphere_virtual_machine" "vm" {
   for_each = var.vms
 
@@ -19,19 +25,31 @@ resource "vsphere_virtual_machine" "vm" {
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.ds[each.value.datastore_name].id
 
-  num_cpus         = 4
-  memory           = 4096
-  guest_id         = each.value.guest_id
+  num_cpus         = var.vm_num_cpus
+  memory           = var.vm_memory
+  guest_id         = data.vsphere_virtual_machine.template.guest_id
 
   network_interface {
     network_id = data.vsphere_network.network.id
   }
+
   disk {
     label = "disk0"
-    size  = 64
+    size  = var.vm_disk_size
   }
-  cdrom {
-    datastore_id = data.vsphere_datastore.iso_ds[each.value.iso_datastore_name].id
-    path = each.value.iso_path
+
+  clone {
+    template_uuid = data.vsphere_virtual_machine.template.id
+    customize {
+      linux_options {
+        host_name = each.value.name
+        domain    = var.domain_name
+      }
+      network_interface {
+        ipv4_address = each.value.ipv4_address
+        ipv4_netmask = each.value.ipv4_netmask
+      }
+      ipv4_gateway = each.value.ipv4_gateway
+    }
   }
 }

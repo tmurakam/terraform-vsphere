@@ -1,17 +1,25 @@
+// vCenter configuration
+vcenter_server = "vcenter.example.com"
 user = "administrator@vsphere.local"
 password = "Passw0rD!"
-vcenter_server = "vcenter.example.com"
 
+// Datacenter name
 datacenter = "ExampleDC"
+// Cluster name
 cluster = "MyCluster"
+// Network name
 network = "VM Network"
 
+// VM template name
+vm_template_name = ""
+
+// VM configurations
 vms = {
   vm1 = {
     name = "vm1"
     datastore_name = "datastore1"
-    iso_datastore_name = "datastore1"
-    iso_path = "/ISOs/ubuntu-22.04.1-live-server-amd64.iso"
-    guest_id = "ubuntu64Guest"
+    ipv4_address = "192.168.0.10"
+    ipv4_netmask = 24
+    ipv4_gateway = "192.168.0.1"
   }
 }
