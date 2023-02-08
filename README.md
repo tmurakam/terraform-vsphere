@@ -59,6 +59,7 @@ VM インスタンスごとの設定は `vms` で設定行います。vms には
 vms = {
   vm1 = {
     name = "vm1"
+    vsphere_host = "esxi01"
     datastore_name = "datastore1"
   }
 }
@@ -67,6 +68,7 @@ vms = {
 設定項目は以下の通り。
 
 * name: VMの名前 (ホスト名にもなります)
+* vsphere_host: VMを起動する vSphere ホスト(ESXi)名。空文字の場合は自動。
 * datastore_name: VMを格納する datastore の名前
 
 デフォルトでは DHCP により IP アドレスは自動で設定されます。
@@ -81,6 +83,7 @@ dhcp = false
 vms = {
   vm1 = {
     name = "vm1"
+    vsphere_host = "esxi01"
     datastore_name = "datastore1"
     ipv4_address = "192.168.0.10"
     ipv4_netmask = 24

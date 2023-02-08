@@ -24,6 +24,8 @@ domain_name = "example.com"
 vms = {
   vm1 = {
     name = "vm1"
+    vsphere_host = ""
+    //vsphere_host = "exsi01"
     datastore_name = "datastore1"
   }
 }
