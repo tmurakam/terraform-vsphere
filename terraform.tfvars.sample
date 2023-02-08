@@ -19,15 +19,11 @@ vm_memory = 4096
 vm_disk_size = 64
 
 domain_name = "example.com"
-dns_servers = [ "192.168.1.1", "8.8.8.8" ]
 
 // VM configurations
 vms = {
   vm1 = {
     name = "vm1"
     datastore_name = "datastore1"
-    ipv4_address = "192.168.0.10"
-    ipv4_netmask = 24
-    ipv4_gateway = "192.168.0.1"
   }
 }

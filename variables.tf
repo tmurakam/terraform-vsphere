@@ -27,7 +27,13 @@ variable "domain_name" {
   default = "example.com"
 }
 
+variable "dhcp" {
+  description = "Use DHCP to allocate IP to VM"
+  default = true
+}
+
 variable "dns_servers" {
+  description = "Array of DNS server. Ignored if dhcp is true"
   default = []
 }
 

@@ -52,9 +52,32 @@ VM の共通設定です。
 ## VM 個別
 
 VM インスタンスごとの設定は `vms` で設定行います。vms には任意の個数の VM を指定できます。
-設定項目は以下のコマンドを参照してください。
+
+設定例は以下を参照してください。
 
 ```
+vms = {
+  vm1 = {
+    name = "vm1"
+    datastore_name = "datastore1"
+  }
+}
+```
+
+設定項目は以下の通り。
+
+* name: VMの名前 (ホスト名にもなります)
+* datastore_name: VMを格納する datastore の名前
+
+デフォルトでは DHCP により IP アドレスは自動で設定されます。
+
+### DHCP を使用しない場合
+
+DHCP を使用しない場合の例を示します。この場合、IPアドレスはすべて手動で設定する必要があります。
+
+```
+dhcp = false
+
 vms = {
   vm1 = {
     name = "vm1"
@@ -64,12 +87,13 @@ vms = {
     ipv4_gateway = "192.168.0.1"
   }
 }
+
+dns_servers = [ "192.168.1.1", "8.8.8.8" ]
 ```
 
-設定項目は以下の通り。
-
-* name: VMの名前 (ホスト名にもなります)
-* datastore_name: VMを格納する datastore の名前
-* ipv4_address: IPv4アドレス
-* ipv4_netmask: ネットマスク長
-* ipv4_gateway: IPv4デフォルトゲートウェイ
+* dhcp: false に設定
+* vms
+    * ipv4_address: IPv4アドレス
+    * ipv4_netmask: ネットマスク長
+    * ipv4_gateway: IPv4デフォルトゲートウェイ
+* dns_servers: DNSサーバアドレス

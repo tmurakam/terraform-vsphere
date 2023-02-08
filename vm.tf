@@ -39,11 +39,11 @@ resource "vsphere_virtual_machine" "vm" {
         domain    = var.domain_name
       }
       network_interface {
-        ipv4_address = each.value.ipv4_address
-        ipv4_netmask = each.value.ipv4_netmask
+        ipv4_address = var.dhcp ? null : each.value.ipv4_address
+        ipv4_netmask = var.dhcp ? null : each.value.ipv4_netmask
       }
-      ipv4_gateway = each.value.ipv4_gateway
-      dns_server_list = var.dns_servers
+      ipv4_gateway = var.dhcp ? null : each.value.ipv4_gateway
+      dns_server_list = var.dhcp ? null : var.dns_servers
     }
   }
 }
