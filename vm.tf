@@ -5,13 +5,6 @@ data "vsphere_datastore" "ds" {
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
-data "vsphere_datastore" "iso_ds" {
-  for_each = toset(flatten([for vm in var.vms : vm.iso_datastore_name]))
-
-  name          = each.value
-  datacenter_id = data.vsphere_datacenter.datacenter.id
-}
-
 data "vsphere_virtual_machine" "template" {
   name          = var.vm_template_name
   datacenter_id = data.vsphere_datacenter.datacenter.id
