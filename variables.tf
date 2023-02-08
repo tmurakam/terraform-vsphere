@@ -1,24 +1,30 @@
+variable "vcenter_server" {
+  description = "FQDN of vCenter server"
+  default = ""
+}
+
 variable "user" {
+  description = "username of vCenter server"
   default = ""
 }
 
 variable "password" {
-  default = ""
-}
-
-variable "vcenter_server" {
+  description = "password of vCenter server"
   default = ""
 }
 
 variable "datacenter" {
+  description = "Datacenter name"
   default = ""
 }
 
 variable "cluster" {
+  description = "Compute cluster name"
   default = ""
 }
 
 variable "network" {
+  description = "Network name"
   default = "VM Network"
 }
 
@@ -43,19 +49,22 @@ variable "vm_template_name" {
 }
 
 variable "vm_num_cpus" {
+  description = "Number of cpus of VM"
   default = 4
 }
 
 variable "vm_memory" {
+  description = "Memory size of VM (MB)"
   default = 4096
 }
 
 variable "vm_disk_size" {
-  description = "VM disk size"
+  description = "VM disk size (GB)"
   default = 64
 }
 
 variable "vms" {
+  description = "VM parameters"
   default = {}
 }
 
