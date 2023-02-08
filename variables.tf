@@ -27,6 +27,10 @@ variable "domain_name" {
   default = "example.com"
 }
 
+variable "dns_servers" {
+  default = []
+}
+
 variable "vm_template_name" {
   description = "VM template name"
   default = ""
