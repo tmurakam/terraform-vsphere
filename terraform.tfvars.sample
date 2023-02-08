@@ -13,6 +13,14 @@ network = "VM Network"
 // VM template name
 vm_template_name = ""
 
+// Common VM configurations
+vm_num_cpus = 4
+vm_memory = 4096
+vm_disk_size = 64
+
+domain_name = "example.com"
+dns_servers = [ "192.168.1.1", "8.8.8.8" ]
+
 // VM configurations
 vms = {
   vm1 = {
