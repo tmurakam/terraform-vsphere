@@ -26,6 +26,7 @@ resource "vsphere_virtual_machine" "vm" {
 
   name             = each.value.name
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
+  #resource_pool_id = data.vsphere_resource_pool.pool.id
   host_system_id   = each.value.vsphere_host == "" ? null : data.vsphere_host.host[each.value.vsphere_host].id
   datastore_id     = data.vsphere_datastore.ds[each.value.datastore_name].id
 
