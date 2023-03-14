@@ -45,6 +45,7 @@ VM の共通設定です。
 
 * vm_template_name: VMテンプレート名
   - 全 VM は、このテンプレートを clone して作成します
+* vm_folder: VMを格納するフォルダ名。不要時は null。
 * vm_num_cpus: CPU数
 * vm_memory: メモリ量 (MB)
 * vm_disk_size: ディスクサイズ (GB)

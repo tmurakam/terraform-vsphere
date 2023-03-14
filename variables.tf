@@ -48,6 +48,11 @@ variable "vm_template_name" {
   default = ""
 }
 
+variable "vm_folder" {
+  description = "Path of VM folder"
+  default = null
+}
+
 variable "vm_num_cpus" {
   description = "Number of cpus of VM"
   default = 4

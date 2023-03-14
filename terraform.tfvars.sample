@@ -12,6 +12,7 @@ network = "VM Network"
 
 // VM template name
 vm_template_name = ""
+vm_folder = "vmset1"
 
 // Common VM configurations
 vm_num_cpus = 4

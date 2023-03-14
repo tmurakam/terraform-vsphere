@@ -25,6 +25,7 @@ resource "vsphere_virtual_machine" "vm" {
   for_each = var.vms
 
   name             = each.value.name
+  folder           = var.vm_folder
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   #resource_pool_id = data.vsphere_resource_pool.pool.id
   host_system_id   = each.value.vsphere_host == "" ? null : data.vsphere_host.host[each.value.vsphere_host].id
